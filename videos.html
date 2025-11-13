@@ -1,28 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Common <head> block -->
     <meta charset="utf-8" />
+    <title>Videos – Next Step English</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Next Step English</title>
     <meta
       name="description"
-      content="Authentic, comprehensible English lessons, podcasts, and videos to break your plateau."
+      content="Watch Next Step English shorts and full lessons to improve your English with real, understandable content."
     />
-    <link rel="icon" href="/assets/favicon.ico" />
-    <link rel="canonical" href="https://nextstepenglishguide.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Next Step English" />
-    <meta
-      property="og:description"
-      content="Real English you’ll actually use. Lessons, podcasts, and videos for intermediate learners."
-    />
-    <meta
-      property="og:image"
-      content="https://nextstepenglishguide.com/assets/img/og-cover.jpg"
-    />
-    <meta property="og:url" content="https://nextstepenglishguide.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- Site Header (duplicated for now; will refactor later) -->
+    <header class="site-header" role="banner">
+      <div class="container header__inner">
+        <a href="/index.html" class="site-logo">
+          <span class="site-logo__mark">Next Step</span>
+          <span class="site-logo__text">Next Step English</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="main-nav__list">
+            <li class="main-nav__item">
+              <a href="/podcasts.html" class="main-nav__link">Podcast</a>
+            </li>
+            <li class="main-nav__item">
+              <a
+                href="/videos.html"
+                class="main-nav__link main-nav__link--active"
+                >Videos</a
+              >
+            </li>
+            <li class="main-nav__item">
+              <a href="/weekly-lessons.html" class="main-nav__link"
+                >Weekly Lessons</a
+              >
+            </li>
+            <li class="main-nav__item">
+              <a href="/contact.html" class="main-nav__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- Hero / Intro section -->
+      <section class="videos-hero" aria-labelledby="videos-heading">
+        <div class="container videos-hero__inner">
+          <header class="videos-hero__header">
+            <p class="eyebrow">Videos</p>
+            <h1 id="videos-heading">Practice your English with real lessons</h1>
+            <p class="videos-hero__subtitle">
+              Watch shorts for quick tips, or full lessons for deeper practice.
+            </p>
+          </header>
+
+          <div class="videos-hero__actions">
+            <a
+              href="https://www.youtube.com/@NextStepEnglish"
+              class="button button--primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Visit YouTube Channel
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Toggle / tabs for Shorts vs Videos (purely structural for now) -->
+      <section class="videos-tabs" aria-label="Video type navigation">
+        <div class="container videos-tabs__inner">
+          <nav class="videos-tabs__nav" aria-label="Video categories">
+            <button
+              type="button"
+              class="videos-tabs__button videos-tabs__button--active"
+            >
+              Shorts
+            </button>
+            <button type="button" class="videos-tabs__button">
+              Full videos
+            </button>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Shorts section -->
+      <section
+        class="videos-section videos-section--shorts"
+        aria-labelledby="shorts-heading"
+      >
+        <div class="container">
+          <header class="videos-section__header">
+            <h2 id="shorts-heading">Shorts</h2>
+            <p class="videos-section__description">
+              Quick pronunciation tips, natural English phrases, and motivation
+              — all in under a minute.
+            </p>
+          </header>
+
+          <div
+            class="videos-grid videos-grid--shorts"
+            aria-label="Short videos list"
+          >
+            <!-- Video card 1 (placeholder) -->
+            <article class="video-card video-card--short">
+              <a href="#" class="video-card__link">
+                <div class="video-card__thumbnail">
+                  <!-- YouTube thumbnail image goes here -->
+                  <img
+                    src="/images/placeholders/short-1.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span class="video-card__badge">Short</span>
+                </div>
+                <div class="video-card__body">
+                  <h3 class="video-card__title">
+                    The most dangerous pronunciation mistake in English?!
+                  </h3>
+                  <p class="video-card__meta">
+                    <span class="video-card__length">0:45</span>
+                    <span aria-hidden="true">•</span>
+                    <span class="video-card__tag">Pronunciation</span>
+                  </p>
+                </div>
+              </a>
+            </article>
+
+            <!-- Video card 2 (placeholder) -->
+            <article class="video-card video-card--short">
+              <a href="#" class="video-card__link">
+                <div class="video-card__thumbnail">
+                  <img
+                    src="/images/placeholders/short-2.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span class="video-card__badge">Short</span>
+                </div>
+                <div class="video-card__body">
+                  <h3 class="video-card__title">
+                    Avoid this embarrassing L/R mistake
+                  </h3>
+                  <p class="video-card__meta">
+                    <span class="video-card__length">0:38</span>
+                    <span aria-hidden="true">•</span>
+                    <span class="video-card__tag">Speaking</span>
+                  </p>
+                </div>
+              </a>
+            </article>
+
+            <!-- Add more shorts as needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Full videos section -->
+      <section
+        class="videos-section videos-section--full"
+        aria-labelledby="full-videos-heading"
+      >
+        <div class="container">
+          <header class="videos-section__header">
+            <h2 id="full-videos-heading">Full lessons</h2>
+            <p class="videos-section__description">
+              Longer videos for listening practice, mindset, and real English
+              input.
+            </p>
+          </header>
+
+          <div
+            class="videos-grid videos-grid--full"
+            aria-label="Full videos list"
+          >
+            <!-- Full video card 1 (placeholder) -->
+            <article class="video-card video-card--full">
+              <a href="#" class="video-card__link">
+                <div class="video-card__thumbnail">
+                  <img
+                    src="/images/placeholders/full-1.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span class="video-card__badge">Lesson</span>
+                </div>
+                <div class="video-card__body">
+                  <h3 class="video-card__title">
+                    Break your English plateau: 3 mindset shifts that actually
+                    work
+                  </h3>
+                  <p class="video-card__description">
+                    A 15-minute lesson about how to move from “stuck” to growing
+                    again in English.
+                  </p>
+                  <p class="video-card__meta">
+                    <span class="video-card__length">15:24</span>
+                    <span aria-hidden="true">•</span>
+                    <span class="video-card__tag">Mindset</span>
+                  </p>
+                </div>
+              </a>
+            </article>
+
+            <!-- Full video card 2 (placeholder) -->
+            <article class="video-card video-card--full">
+              <a href="#" class="video-card__link">
+                <div class="video-card__thumbnail">
+                  <img
+                    src="/images/placeholders/full-2.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span class="video-card__badge">Lesson</span>
+                </div>
+                <div class="video-card__body">
+                  <h3 class="video-card__title">
+                    Real English listening: understanding fast native speech
+                  </h3>
+                  <p class="video-card__description">
+                    Train your ear with natural, but clear English designed for
+                    intermediate learners.
+                  </p>
+                  <p class="video-card__meta">
+                    <span class="video-card__length">22:10</span>
+                    <span aria-hidden="true">•</span>
+                    <span class="video-card__tag">Listening</span>
+                  </p>
+                </div>
+              </a>
+            </article>
+
+            <!-- Add more full videos as needed -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer (duplicated for now; will refactor later) -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__title">Next Step English</p>
+          <p class="site-footer__tagline">
+            Take the next step in your English journey.
+          </p>
+        </div>
+
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <ul class="site-footer__list">
+            <li><a href="/podcasts.html">Podcast</a></li>
+            <li><a href="/videos.html">Videos</a></li>
+            <li><a href="/weekly-lessons.html">Weekly Lessons</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <p class="site-footer__copy">
+          &copy; <span id="footer-year"></span> Next Step English. All rights
+          reserved.
+        </p>
+      </div>
+
+      <script>
+        document.getElementById("footer-year").textContent =
+          new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
 </html>

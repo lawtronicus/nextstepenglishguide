@@ -1,28 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Common <head> block -->
     <meta charset="utf-8" />
+    <title>Episode Title – Next Step English Podcast</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Next Step English</title>
     <meta
       name="description"
-      content="Authentic, comprehensible English lessons, podcasts, and videos to break your plateau."
+      content="Listen to this episode of the Next Step English podcast and read the full transcript to practice your English with real, understandable content."
     />
-    <link rel="icon" href="/assets/favicon.ico" />
-    <link rel="canonical" href="https://nextstepenglishguide.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Next Step English" />
-    <meta
-      property="og:description"
-      content="Real English you’ll actually use. Lessons, podcasts, and videos for intermediate learners."
-    />
-    <meta
-      property="og:image"
-      content="https://nextstepenglishguide.com/assets/img/og-cover.jpg"
-    />
-    <meta property="og:url" content="https://nextstepenglishguide.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- Site Header (duplicated for now; refactor later) -->
+    <header class="site-header" role="banner">
+      <div class="container header__inner">
+        <a href="/index.html" class="site-logo">
+          <span class="site-logo__mark">Next Step</span>
+          <span class="site-logo__text">Next Step English</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="main-nav__list">
+            <li class="main-nav__item">
+              <a
+                href="/podcasts.html"
+                class="main-nav__link main-nav__link--active"
+                >Podcast</a
+              >
+            </li>
+            <li class="main-nav__item">
+              <a href="/videos.html" class="main-nav__link">Videos</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="/weekly-lessons.html" class="main-nav__link"
+                >Weekly Lessons</a
+              >
+            </li>
+            <li class="main-nav__item">
+              <a href="/contact.html" class="main-nav__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- Episode hero / heading area -->
+      <article class="episode" aria-labelledby="episode-title">
+        <header class="episode-hero">
+          <div class="container episode-hero__inner">
+            <div class="episode-hero__text">
+              <p class="episode-hero__eyebrow">
+                E01 &middot; Learn English Naturally
+              </p>
+              <h1 id="episode-title">This is the Title of the Episode</h1>
+
+              <p class="episode-hero__meta">
+                <time datetime="2025-01-01">January 1, 2025</time>
+                <span aria-hidden="true">•</span>
+                <span class="episode-hero__keywords">
+                  Keyword 1 &nbsp;|&nbsp; Keyword 2 &nbsp;|&nbsp; Keyword 3
+                </span>
+              </p>
+            </div>
+
+            <!-- Episode summary card + audio player -->
+            <aside class="episode-card" aria-label="Episode info">
+              <h2 class="episode-card__title">
+                This is the Title of the Episode
+              </h2>
+              <p class="episode-card__subtitle">
+                E01 · Learn English Naturally
+              </p>
+              <p class="episode-card__meta">
+                <span class="episode-card__length">30 min</span>
+              </p>
+
+              <!-- Native audio player (replace src with your file) -->
+              <audio
+                class="episode-card__audio"
+                controls
+                preload="metadata"
+                aria-label="Play this episode"
+              >
+                <source src="/audio/episode-01.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+
+              <!-- Optional: external links (YouTube / Spotify / Apple) -->
+              <div class="episode-card__links">
+                <a
+                  href="https://www.youtube.com/@NextStepEnglish"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Watch on YouTube
+                </a>
+                <a href="#" target="_blank" rel="noopener">
+                  Listen on Spotify
+                </a>
+                <a href="#" target="_blank" rel="noopener"> Apple Podcasts </a>
+              </div>
+            </aside>
+          </div>
+        </header>
+
+        <!-- Main content layout: description + transcript -->
+        <div class="episode-content">
+          <div class="container episode-content__inner">
+            <section
+              class="episode-section episode-section--description"
+              aria-labelledby="episode-description-heading"
+            >
+              <h2 id="episode-description-heading">Description</h2>
+              <p>
+                Episode description here... This is where you briefly explain
+                what the episode is about, who it’s for, and what listeners will
+                learn or think about while they listen.
+              </p>
+              <p>
+                You can also include links to resources mentioned in the
+                episode, like articles, books, or previous videos.
+              </p>
+            </section>
+
+            <section
+              class="episode-section episode-section--transcript"
+              aria-labelledby="episode-transcript-heading"
+            >
+              <h2 id="episode-transcript-heading">Transcript</h2>
+
+              <!-- Transcript content – can be generated / injected later -->
+              <div class="episode-transcript">
+                <p><strong>[Intro]</strong></p>
+                <p>
+                  This is the title of the episode. Welcome back to the Next
+                  Step English podcast, where we help you move past the plateau
+                  and actually enjoy your English again…
+                </p>
+
+                <p><strong>[Main Content]</strong></p>
+                <p>
+                  Episode transcript here… You can divide the transcript into
+                  smaller paragraphs for readability. If you want timestamps,
+                  you can include them like <strong>[00:01:23]</strong> at the
+                  start of each section.
+                </p>
+
+                <p><strong>[Closing]</strong></p>
+                <p>
+                  Thanks for listening to this episode of Next Step English. If
+                  you enjoyed it, consider subscribing to the podcast and
+                  joining the Weekly Lessons newsletter for more practice.
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- Site Footer (duplicated for now) -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__title">Next Step English</p>
+          <p class="site-footer__tagline">
+            Take the next step in your English journey.
+          </p>
+        </div>
+
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <ul class="site-footer__list">
+            <li><a href="/podcasts.html">Podcast</a></li>
+            <li><a href="/videos.html">Videos</a></li>
+            <li><a href="/weekly-lessons.html">Weekly Lessons</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <p class="site-footer__copy">
+          &copy; <span id="footer-year"></span> Next Step English. All rights
+          reserved.
+        </p>
+      </div>
+
+      <script>
+        document.getElementById("footer-year").textContent =
+          new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
 </html>
