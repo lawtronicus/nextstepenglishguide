@@ -26,40 +26,70 @@
     />
     <meta property="og:url" content="https://nextstepenglishguide.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <!-- Skip link for accessibility -->
-    <a class="skip-link" href="#main">Skip to main content</a>
+    <nav class="header-nav" role="navigation">
+      <img
+        src="/assets/images/full logo white.png"
+        alt="Next Step English Logo"
+      />
+      <div id="menuToggle">
+        <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+        <input type="checkbox" id="menuCheckbox" />
 
-    <header role="banner">
-      <div class="container">
-        <div class="brand">
-          <!-- Replace with your logo image when ready -->
-          <a href="/" aria-label="Next Step English home">
-            <strong>Next Step English</strong>
-          </a>
-        </div>
+        <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+        <span></span>
+        <span></span>
+        <span></span>
 
-        <nav aria-label="Primary">
-          <ul>
-            <li><a href="/podcast.html">Podcast</a></li>
-            <li><a href="/videos.html">Videos</a></li>
-            <li><a href="/weekly-lessons.html">Weekly Lessons</a></li>
-            <li><a href="/about.html">About</a></li>
-            <!-- Future: Courses/Books -->
-          </ul>
-        </nav>
+        <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+        <ul id="menu">
+          <!-- 
+      We can use a label here to close upon click (when doing same page navigation), this
+      does require a slight bit of JS.
+      -->
+          <li>
+            <a href="/podcasts.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Podcasts</label
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/videos.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Videos</label
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/weekly-lessons.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Weekly Lessons</label
+              >
+            </a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
 
     <main id="main">
-      <!-- HERO -->
       <!-- HERO -->
       <section id="hero" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-copy">
-            <p class="kicker">Get the weekly lesson!</p>
             <h1 id="hero-title">
               Take Your <br />
               English to <br />
@@ -72,7 +102,7 @@
             </p>
 
             <!-- CTA button instead of form -->
-            <a href="/weekly-lessons.html" class="btn btn-primary"
+            <a href="/weekly-lessons.html" class="btn btn--primary"
               >Get the Weekly Lesson</a
             >
           </div>
@@ -85,108 +115,145 @@
       </section>
 
       <!-- WHY NSE IS DIFFERENT -->
-      <!-- UPCOMING COURSES -->
-      <section id="courses" aria-labelledby="courses-title">
-        <div class="container">
-          <h2 id="courses-title">Upcoming Courses!</h2>
-
-          <!-- Course 1 -->
-          <article class="course" aria-labelledby="course-ebe-title">
-            <header>
-              <h3 id="course-ebe-title">English Breakthrough</h3>
-              <p class="tagline">Learn from the Real World</p>
-            </header>
-            <p>
-              Step beyond textbooks and into real English. Each week, explore
-              authentic videos, blogs, and podcasts built around engaging
-              real-world topics. Develop the confidence to understand natural
-              English and connect with content you actually enjoy.
-            </p>
-            <ul>
-              <li>16 self-paced lessons featuring real English</li>
-              <li>
-                Designed for intermediate learners ready to break through the
-                plateau
-              </li>
-              <li>
-                Learn vocabulary, tone, and rhythm directly from authentic media
-              </li>
-              <li>Perfect for self-study or classroom use</li>
-            </ul>
-          </article>
-
-          <!-- Course 2 -->
-          <article class="course" aria-labelledby="course-pv-title">
-            <header>
-              <h3 id="course-pv-title">Phrasal Verbs in Action</h3>
-              <p class="tagline">Master real English expressions</p>
-            </header>
-            <p>
-              Learn how English speakers actually use common phrasal verbs in
-              everyday life. Each entry includes clear examples, natural
-              context, and a comparison with its formal or single-word synonym —
-              so you can finally understand when and why we say
-              <em>bring up</em> instead of <em>mention</em>, or
-              <em>cut down on</em> instead of <em>reduce</em>.
-            </p>
-            <ul>
-              <li>
-                Based on the PHaVE list — the most common phrasal verbs in real
-                English
-              </li>
-              <li>Multiple example sentences in authentic contexts</li>
-              <li>Focuses on meaning, nuance, and tone</li>
-              <li>Perfect for intermediate learners</li>
-            </ul>
-          </article>
-
-          <!-- Course 3 -->
-          <article class="course" aria-labelledby="course-sc-title">
-            <header>
-              <h3 id="course-sc-title">
-                Speak Clearly: The Sounds That Matter
-              </h3>
-              <p class="tagline">
-                Fix pronunciation that really affects understanding
-              </p>
-            </header>
-            <p>
-              Fix the pronunciation issues that truly affect understanding —
-              from confusing vowel pairs like <em>ship/sheep</em> to final
-              sounds, rhythm, and linking. Each chapter gives you clear
-              explanations, visual guides, and short daily practice drills that
-              actually fit your schedule.
-            </p>
-            <ul>
-              <li>Step-by-step explanations</li>
-              <li>Includes daily 5-minute drills and real-life examples</li>
-              <li>
-                Designed for intermediate learners who want to sound clearer and
-                more confident
-              </li>
-            </ul>
-          </article>
+      <section id="why" aria-labelledby="why-title">
+        <div class="container card" id="why-card">
+          <h2 id="why-title">Why Next Step English is Different?</h2>
+          <ul>
+            <li>Learn through natural language content.</li>
+            <li>Listen and understand — no memorizing!</li>
+            <li>Learn vocabulary and grammar in context</li>
+          </ul>
         </div>
       </section>
+      <!-- UPCOMING COURSES -->
+      <section class="section" id="courses">
+        <div class="container stack">
+          <header class="stack stack--tight">
+            <h2 class="section-title" id="courses-title">Upcoming Courses</h2>
+          </header>
 
+          <div class="course-carousel">
+            <div class="course-carousel__viewport">
+              <div class="course-carousel__track">
+                <!-- Slide 1 -->
+                <article class="card new-course">
+                  <span class="card__tag">Coming soon</span>
+                  <img
+                    src="/assets/images/English Breakthrough.png"
+                    alt="English Breakthrough cover image"
+                    class="book-cover"
+                  />
+                  <h3 class="card__title">
+                    English Breakthrough: Learn from the Real World
+                  </h3>
+                  <p class="card__text">
+                    A 4-week self-study guide to escape textbooks and learn from
+                    real English: YouTube, blogs, podcasts, and more.
+                  </p>
+                  <ul class="course-details">
+                    <li>16 self-paced lessons featuring real English</li>
+                    <li>
+                      Designed for intermediate learners ready to break through
+                      the plateau.
+                    </li>
+                    <li>
+                      Learn vocabulary, tone, and rhythm directly from authentic
+                      media.
+                    </li>
+                    <li>Perfect for self-study or classroom use.</li>
+                  </ul>
+                  <p class="card__meta">
+                    Level: Intermediate - Advanced · Self-study · 4 weeks
+                  </p>
+                </article>
+
+                <!-- Slide 2 -->
+                <article class="card new-course">
+                  <span class="card__tag">Coming soon</span>
+                  <img
+                    src="/assets/images/phrasal verbs in action cover.png"
+                    alt="Phrasal Verbs in Action cover image"
+                    class="book-cover"
+                  />
+                  <h3 class="card__title">Phrasal Verbs in Context</h3>
+                  <p class="card__text">
+                    The most useful phrasal verbs from the PHaVE list, each with
+                    clear examples and natural synonyms so you finally feel
+                    comfortable using them.
+                  </p>
+                  <ul class="course-details">
+                    <li>
+                      Based on the PHaVE list, the most common phrasal verbs in
+                      real English.
+                    </li>
+                    <li>
+                      Each verb includes multiple example sentences in authentic
+                      contexts.
+                    </li>
+                    <li>Focuses on meaning, nuance, and tone.</li>
+                    <li>Perfect for intermediate learners</li>
+                  </ul>
+                  <p class="card__meta">Reference · Upper-intermediate+</p>
+                </article>
+
+                <!-- Slide 3 -->
+                <article class="card new-course">
+                  <span class="card__tag">Coming soon</span>
+                  <img
+                    src="/assets/images/speak clearly cover.png"
+                    alt="Speak Clearly cover image"
+                    class="book-cover"
+                  />
+                  <h3 class="card__title">
+                    Sound Natural: English Pronunciation Guide
+                  </h3>
+                  <p class="card__text">
+                    A practical pronunciation workbook focused on the sounds
+                    that actually cause misunderstandings — with drills you can
+                    repeat in real life.
+                  </p>
+                  <ul class="course-details">
+                    <li>Step-by-step explanations</li>
+                    <li>
+                      Includes daily 5-minute drills and real-life examples
+                    </li>
+                    <li>
+                      Designed for intermediate learners who want to sound
+                      clearer and more confident./li>
+                    </li>
+                  </ul>
+
+                  <p class="card__meta">All levels · Practice-focused</p>
+                </article>
+              </div>
+            </div>
+
+            <button
+              class="carousel__btn carousel__btn--next"
+              aria-label="Next course"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+      </section>
       <!-- ABOUT / WHO AM I -->
       <section id="about" aria-labelledby="about-title">
         <div class="container">
           <h2 id="about-title">Who am I?</h2>
 
-          <div class="about-wrap">
-            <figure class="portrait">
-              <!-- <img src="/assets/lawton.jpg" alt="Lawton, creator of Next Step English" /> -->
-              <figcaption class="visually-hidden">Lawton</figcaption>
-            </figure>
+          <div class="about-wrap card">
+            <div id="bio-photo">
+              <img src="/assets/images/bio photo square.png" alt="Bio Photo" />
+            </div>
 
             <div class="about-copy">
-              <h3>Lawton</h3>
+              <h3 id="bio-title">Lawton</h3>
               <p>
                 Lawton began teaching almost 20 years ago, and since then has
                 taught both children and adults from multiple different
                 countries at all different levels of English proficiency. As a
-                language learner, Lawton often found that breaking through from
+                language learner, Lawton often found that going from
                 intermediate to advanced was the hardest jump. He created Next
                 Step English to help English learners break through this
                 plateau.
@@ -200,30 +267,26 @@
     </main>
 
     <footer role="contentinfo">
-      <div class="container">
-        <nav aria-label="Footer">
-          <ul>
-            <li><a href="/contact.html">Contact</a></li>
-            <li>
-              <a
-                href="https://www.youtube.com/@NextStepEnglish"
-                target="_blank"
-                rel="noopener"
-                >YouTube</a
-              >
-            </li>
-            <!-- Add socials as needed -->
-          </ul>
-        </nav>
-        <p>
-          &copy; <span id="year"></span> Next Step English. All rights reserved.
-        </p>
-      </div>
-
+      <nav class="footer-nav" aria-label="Footer">
+        <img src="/assets/images/full logo white.png" alt="" />
+        <ul>
+          <li><a href="mailto:englishwithlawton@gmail.com">Contact</a></li>
+          <li>
+            <a
+              href="https://www.youtube.com/@Next_Step_English"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </li>
+          <!-- Add socials as needed -->
+        </ul>
+      </nav>
       <script>
         // Tiny helper for the footer year
         document.getElementById("year").textContent = new Date().getFullYear();
       </script>
     </footer>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

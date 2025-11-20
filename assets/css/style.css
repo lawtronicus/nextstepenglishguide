@@ -1,0 +1,844 @@
+/* --------------------------------------------------
+   1. Reset / base
+-------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Helps with consistent rem sizing */
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Make images and embeds behave */
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove default list styles where we handle them ourselves */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* --------------------------------------------------
+   2. Design tokens (CSS variables)
+-------------------------------------------------- */
+
+:root {
+  /* Raw palette */
+  --color-mint-100: #d1ffec;
+  --color-mint-200: #8edfd0;
+  --color-mint-300: #4ca59a;
+  --color-mint-400: #2b7a78;
+
+  --color-coral-300: #ff7c66;
+  --color-coral-200: #ff9d8c;
+  --color-coral-100: #ffbdb3;
+  --color-coral-50: #ffded9;
+
+  --color-gray-900: #2f2f2f;
+  --color-white: #ffffff;
+
+  /* Semantic colors */
+  --color-bg: #f7fffb; /* very light mint background */
+  --color-bg-alt: #ffffff;
+  --color-surface: rgba(255, 255, 255, 0.9);
+  --color-surface-strong: #ffffff;
+
+  --color-primary: var(--color-mint-400);
+  --color-primary-soft: var(--color-mint-200);
+  --color-accent: var(--color-coral-300);
+
+  --color-text: var(--color-gray-900);
+  --color-text-muted: #5e5e5e;
+  --color-border-subtle: rgba(0, 0, 0, 0.06);
+
+  /* Shadows / blur */
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.12);
+  --shadow-subtle: 0 8px 20px rgba(0, 0, 0, 0.06);
+  --backdrop-blur: 18px;
+
+  /* Radius */
+  --radius-sm: 0.4rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.2rem;
+  --radius-pill: 999px;
+
+  /* Spacing scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Typography scale */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+
+  /* FONT FAMILIES */
+  --font-body: "Inter", sans-serif;
+  --font-title: "Montserrat", sans-serif;
+
+  /* FONT WEIGHTS */
+  --fw-body: 400;
+  --fw-body-medium: 500;
+  --fw-body-bold: 600;
+  --fw-title-black: 900;
+
+  /* FONT SIZES (mobile-first scale) */
+  --fs-xs: 0.75rem; /* small labels */
+  --fs-sm: 0.875rem; /* footers, tiny text */
+  --fs-base: 1rem; /* normal body text */
+  --fs-md: 1.25rem; /* section subtitles */
+  --fs-lg: 1.5rem; /* big section heading */
+  --fs-xl: 2rem; /* hero titles */
+  --fs-xxl: 2.75rem; /* large hero titles */
+
+  /* LINE HEIGHT */
+  --lh-tight: 1.1;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.6;
+
+  /* Layout */
+  --container-max: 1120px;
+
+  /* Breakpoints */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-med: 220ms ease-out;
+}
+
+/* ===========
+   4. BASE TYPOGRAPHY
+   =========== */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-body);
+  color: var(--color-gray-900);
+  background: var(--color-gray-100);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title);
+  font-weight: var(--fw-title-black);
+  line-height: var(--lh-tight);
+}
+
+h1 {
+  font-size: var(--fs-xl);
+}
+h2 {
+  font-size: var(--fs-lg);
+}
+h3 {
+  font-size: var(--fs-md);
+}
+
+/* ===========
+   5. BUTTONS
+   =========== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px; /* pill */
+
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-gray-900);
+
+  font-family: var(--font-body);
+  font-weight: var(--fw-body-medium);
+  font-size: var(--fs-base);
+  line-height: 1;
+
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* subtle "press" feedback */
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Primary CTA */
+.btn--primary {
+  background: var(--color-coral-300);
+  color: #ffffff;
+  border-color: white;
+  border-width: 2px;
+  height: 50px;
+}
+
+.btn--primary:hover {
+  background: var(--color-coral-200);
+  border-color: var(--color-coral-200);
+}
+
+/* Secondary outline */
+.btn--secondary {
+  background: #ffffff;
+  color: var(--color-gray-900);
+  border-color: var(--color-mint-300);
+}
+
+.btn--secondary:hover {
+  background: var(--color-mint-100);
+}
+
+/* Ghost / text button */
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-mint-400);
+}
+
+.btn--ghost:hover {
+  color: var(--color-coral-100);
+}
+
+/* ===========
+   6. CARDS
+   =========== */
+
+.card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* slightly smaller / denser card if needed */
+.card--compact {
+  padding: 1rem 1.1rem;
+  border-radius: 0.9rem;
+}
+
+/* small label at top, e.g. "Coming soon" */
+.card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+
+  background: var(--color-mint-100);
+  color: var(--color-mint-400);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-body-medium);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* card title (course name, episode title, etc.) */
+.card__title {
+  font-family: var(--font-title);
+  font-weight: var(--fw-title-black);
+  font-size: var(--fs-md);
+  line-height: var(--lh-tight);
+}
+
+/* main body copy in card */
+.card__text {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: rgba(47, 47, 47, 0.85);
+}
+
+/* meta row at bottom: duration, level, etc. */
+.card__meta {
+  margin-top: 0.4rem;
+  font-size: var(--fs-xs);
+  color: rgba(47, 47, 47, 0.6);
+}
+
+/* optional footer area for buttons/links */
+.card__actions {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ====================
+   LAYOUT HELPERS
+   ==================== */
+
+/* Full page wrapper */
+.page {
+  min-height: 100vh;
+  background: var(--bg-soft);
+  color: var(--color-gray-900);
+}
+
+/* Generic section wrapper */
+.section {
+  padding: 3rem 1.5rem;
+}
+
+/* Alternate background (for contrast between sections) */
+.section--alt {
+  background: var(--color-mint-100);
+}
+
+/* Narrow hero section if you want a bit more padding */
+.section--hero {
+  padding-top: 4rem;
+  padding-bottom: 3.5rem;
+}
+
+/* Width limiter */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Vertical stack */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Tighter stack variant */
+.stack--tight {
+  gap: 0.75rem;
+}
+
+/* Row of elements with wrapping */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Simple responsive grid (e.g., for cards) */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* 2 columns on larger screens */
+@media (min-width: 768px) {
+  .grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 3 columns on larger screens (e.g., future course grid) */
+@media (min-width: 960px) {
+  .grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ====================
+   HEADER & NAV
+   ==================== */
+
+nav.header-nav {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background-color: var(--color-mint-400);
+  height: 64px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 1rem;
+}
+
+nav > img {
+  width: 150px;
+}
+
+nav #menuToggle {
+  display: block;
+  /* You can also use relative/absolute here if you want to stay on the top */
+  position: fixed;
+  top: 25px;
+  right: 25px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: var(--color-gray-900);
+
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: var(--color-coral-300);
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 3px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: white;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-3px, -3px);
+  background: var(--color-gray-900);
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top right of the screen
+ */
+#menu {
+  background-color: #fff;
+  position: fixed;
+  right: -100px;
+  top: 100px;
+  text-align: right;
+  max-width: 400px;
+  width: 100vw;
+  max-height: 100vh;
+  margin: -100px 0 0 -50px;
+  padding-right: 150px;
+  padding-top: 175px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  border-radius: 12px;
+}
+
+/* image for the menu ul */
+#menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(
+      rgba(142, 223, 208, 0.5),
+      rgba(142, 223, 208, 0.5)
+    ),
+    url("/assets/images/toomas-tartes-Yizrl9N_eDA-unsplash.jpg");
+  background-size: 100%;
+  background-position: top right 75px;
+  pointer-events: none;
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menu li label {
+  cursor: pointer;
+}
+
+/*
+ * And let's slide it in from the right
+ */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+/* Logo / brand area */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.site-logo__mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.6rem;
+  background: linear-gradient(135deg, var(--mint-200), var(--coral-100));
+}
+
+.site-logo__text {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: var(--fw-title-black);
+  letter-spacing: 0.03em;
+}
+
+/* ====================
+   HERO SECTION
+   ==================== */
+
+#hero {
+  padding: 4.5rem 0rem 1rem 2rem;
+  background: url("/assets/images/IMG_7662.png") calc(100% + 90px)
+      calc(100% + 50px) / 80% no-repeat,
+    linear-gradient(135deg, var(--color-coral-50), var(--color-mint-100));
+}
+
+#hero-title {
+  color: var(--color-mint-400);
+}
+
+.hero-subtitle {
+  width: 200px;
+  font-size: 20px;
+}
+
+/* ====================
+   WHY NSE IS DIFFERENT SECTION
+   ==================== */
+#why {
+  background: url("/assets/images/joel-jasmin-forestbird-znoL1m6MD_k-unsplash.jpg")
+    center/cover no-repeat;
+  height: 470px;
+  padding: 1rem 1.5rem;
+}
+
+#why-card {
+  text-align: center;
+  border: 2px solid white;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.5)
+  );
+  border-radius: 12px;
+  border: 1px solid white;
+}
+
+#why-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+#why-card > ul {
+  padding: 1rem;
+  font-size: 18px;
+  text-align: left;
+  list-style-type: disc;
+}
+
+/* ====================
+   UPCOMING COURSES SECTION
+   ==================== */
+#courses {
+  padding: 2rem 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-mint-200),
+    var(--color-coral-200)
+  );
+}
+
+.new-course {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  gap: 1rem;
+}
+
+#courses-title {
+  text-align: center;
+  font-size: 30px;
+  color: var(--color-mint-400);
+  margin: 0;
+}
+
+.card__tag {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+
+.book-cover {
+  width: 175px;
+  grid-row: 2/4;
+}
+
+.card__title {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  margin: 0;
+}
+
+.card__text {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  margin: 0;
+}
+
+.course-details {
+  grid-column: 1/3;
+  grid-row: 4;
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+.card__meta {
+  grid-column: 1/3;
+  grid-row: 5;
+}
+
+/* ====================
+   COURSE CAROUSEL
+   ==================== */
+
+.course-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.card.new-course {
+  box-shadow: none;
+}
+
+/* viewport shows only one card at a time */
+.course-carousel__viewport {
+  overflow: hidden;
+  flex: 1;
+  max-width: 400px;
+}
+
+/* track holds all slides in a row */
+.course-carousel__track {
+  display: flex;
+  transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+/* Make each slide take full viewport width */
+.course-carousel__track .card {
+  min-width: 100%;
+}
+
+/* nav buttons */
+.carousel__btn {
+  border: none;
+  background: #ffffff;
+  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  color: var(--color-mint-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease,
+    color 0.1s ease;
+}
+
+.carousel__btn:hover {
+  background: var(--mint-100);
+  color: var(--coral-100);
+}
+
+.carousel__btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+/* ====================
+   WHO AM I SECTION
+   ==================== */
+
+#about {
+  background-color: var(--color-mint-400);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.about-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-mint-100);
+}
+
+#about-title {
+  margin: 0px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+#bio-photo {
+  background: linear-gradient(
+    90deg,
+    var(--color-coral-300),
+    var(--color-coral-100)
+  );
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+#bio-photo > img {
+  border-radius: 50%;
+}
+
+.about-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+#bio-title {
+  align-self: center;
+  justify-self: center;
+}
+
+/* ====================
+   FOOTER
+   ==================== */
+
+footer {
+  background-color: var(--color-coral-300);
+  padding: 1rem;
+  color: white;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
