@@ -11,42 +11,72 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <!-- Site Header (duplicated for now; refactor later) -->
-    <header class="site-header" role="banner">
-      <div class="container header__inner">
-        <a href="/index.html" class="site-logo">
-          <span class="site-logo__mark">Next Step</span>
-          <span class="site-logo__text">Next Step English</span>
-        </a>
+    <nav class="header-nav" role="navigation">
+      <img
+        src="/assets/images/full logo white.png"
+        alt="Next Step English Logo"
+      />
+      <div id="menuToggle">
+        <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+        <input type="checkbox" id="menuCheckbox" />
 
-        <nav class="main-nav" aria-label="Main navigation">
-          <ul class="main-nav__list">
-            <li class="main-nav__item">
-              <a
-                href="/podcasts.html"
-                class="main-nav__link main-nav__link--active"
-                >Podcast</a
+        <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+        <ul id="menu">
+          <!-- 
+      We can use a label here to close upon click (when doing same page navigation), this
+      does require a slight bit of JS.
+      -->
+          <li>
+            <a href="/index.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Home</label
               >
-            </li>
-            <li class="main-nav__item">
-              <a href="/videos.html" class="main-nav__link">Videos</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="/weekly-lessons.html" class="main-nav__link"
-                >Weekly Lessons</a
+            </a>
+          </li>
+          <li>
+            <a href="/podcasts.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Podcasts</label
               >
-            </li>
-            <li class="main-nav__item">
-              <a href="/contact.html" class="main-nav__link">Contact</a>
-            </li>
-          </ul>
-        </nav>
+            </a>
+          </li>
+          <li>
+            <a href="/videos.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Videos</label
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/weekly-lessons.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Weekly Lessons</label
+              >
+            </a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
 
     <main id="main-content">
       <!-- Episode hero / heading area -->
-      <article class="episode" aria-labelledby="episode-title">
+      <article class="episode hero" aria-labelledby="episode-title">
         <header class="episode-hero">
           <div class="container episode-hero__inner">
             <div class="episode-hero__text">
@@ -161,33 +191,29 @@
     </main>
 
     <!-- Site Footer (duplicated for now) -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="container site-footer__inner">
-        <div class="site-footer__brand">
-          <p class="site-footer__title">Next Step English</p>
-          <p class="site-footer__tagline">
-            Take the next step in your English journey.
-          </p>
-        </div>
-
-        <nav class="site-footer__nav" aria-label="Footer navigation">
-          <ul class="site-footer__list">
-            <li><a href="/podcasts.html">Podcast</a></li>
-            <li><a href="/videos.html">Videos</a></li>
-            <li><a href="/weekly-lessons.html">Weekly Lessons</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-        </nav>
-
-        <p class="site-footer__copy">
-          &copy; <span id="footer-year"></span> Next Step English. All rights
-          reserved.
-        </p>
-      </div>
-
+    <footer role="contentinfo">
+      <nav class="footer-nav" aria-label="Footer">
+        <img src="/assets/images/full logo white.png" alt="" />
+        <ul>
+          <li><a href="mailto:englishwithlawton@gmail.com">Contact</a></li>
+          <li>
+            <a
+              href="https://www.youtube.com/@Next_Step_English"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </li>
+          <!-- Add socials as needed -->
+        </ul>
+      </nav>
+      <p class="site-footer__copy">
+        &copy; <span id="footer-year"></span> Next Step English. All rights
+        reserved.
+      </p>
       <script>
-        document.getElementById("footer-year").textContent =
-          new Date().getFullYear();
+        // Tiny helper for the footer year
+        document.getElementById("year").textContent = new Date().getFullYear();
       </script>
     </footer>
   </body>

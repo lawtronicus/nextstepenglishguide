@@ -61,6 +61,13 @@
       does require a slight bit of JS.
       -->
           <li>
+            <a href="/index.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Home</label
+              >
+            </a>
+          </li>
+          <li>
             <a href="/podcasts.html">
               <label for="menuCheckbox" onclick="this.parentNode.click();"
                 >Podcasts</label
@@ -87,7 +94,7 @@
 
     <main id="main">
       <!-- HERO -->
-      <section id="hero" aria-labelledby="hero-title">
+      <section class="hero" id="index-hero" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-copy">
             <h1 id="hero-title">
@@ -282,6 +289,10 @@
           <!-- Add socials as needed -->
         </ul>
       </nav>
+      <p class="site-footer__copy">
+        &copy; <span id="footer-year"></span> Next Step English. All rights
+        reserved.
+      </p>
       <script>
         // Tiny helper for the footer year
         document.getElementById("year").textContent = new Date().getFullYear();

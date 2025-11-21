@@ -159,7 +159,7 @@ button {
 }
 
 /* ===========
-   4. BASE TYPOGRAPHY
+   3. BASE TYPOGRAPHY
    =========== */
 
 body {
@@ -190,7 +190,7 @@ h3 {
 }
 
 /* ===========
-   5. BUTTONS
+   4. BUTTONS
    =========== */
 
 .btn {
@@ -258,14 +258,13 @@ h3 {
 }
 
 /* ===========
-   6. CARDS
+   5. CARDS
    =========== */
 
 .card {
   background: #ffffff;
   border-radius: 1rem;
   padding: 1.25rem 1.4rem;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.03);
 
   display: flex;
@@ -325,8 +324,78 @@ h3 {
   gap: 0.5rem;
 }
 
+/* podcast episode cards */
+.podcast-card {
+  background-color: #fff;
+  border-radius: 18px;
+  overflow: hidden; /* Ensures image matches rounded corners */
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Text section */
+.podcast-card__content {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: 100%;
+}
+
+.podcast-card__title {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--color-mint-400);
+  margin: 1.5rem;
+  margin-bottom: 0.75rem;
+  grid-row: 1;
+}
+
+.podcast-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem; /* ~15–16px */
+  line-height: 1.4;
+  color: var(--color-slate-700, #4a4a4a);
+  margin: 1.5rem;
+  grid-row: 2;
+}
+
+.podcast-card__meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 1.5rem;
+  grid-row: 3;
+  color: var(--color-mint-300);
+}
+
+/* Tags */
+.podcast-card_tags {
+  z-index: 2;
+  grid-row: 4;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 16px;
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+  color: var(--color-mint-100);
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Image */
+.podcast-card__image {
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  grid-column: 1 / -1;
+  grid-row: 4;
+}
+
 /* ====================
-   LAYOUT HELPERS
+   6. LAYOUT HELPERS
    ==================== */
 
 /* Full page wrapper */
@@ -334,6 +403,11 @@ h3 {
   min-height: 100vh;
   background: var(--bg-soft);
   color: var(--color-gray-900);
+}
+
+/* Hero for each page */
+.hero {
+  padding: 4.5rem 0rem 1rem 2rem;
 }
 
 /* Generic section wrapper */
@@ -384,6 +458,19 @@ h3 {
   gap: 1.25rem;
 }
 
+/* standard "Coming Soon!" section */
+.coming-soon-section {
+  padding: 1rem;
+  padding-top: 0;
+  color: white;
+  font-style: italic;
+}
+
+.coming-soon-message {
+  font-size: 36px;
+  text-align: center;
+}
+
 /* 2 columns on larger screens */
 @media (min-width: 768px) {
   .grid--2 {
@@ -399,7 +486,7 @@ h3 {
 }
 
 /* ====================
-   HEADER & NAV
+   7. HEADER & NAV
    ==================== */
 
 nav.header-nav {
@@ -526,7 +613,7 @@ nav #menuToggle {
   max-height: 100vh;
   margin: -100px 0 0 -50px;
   padding-right: 150px;
-  padding-top: 175px;
+  padding-top: 225px;
   padding-bottom: 25px;
   box-sizing: border-box;
   overflow-y: auto;
@@ -598,11 +685,10 @@ nav #menuToggle {
 }
 
 /* ====================
-   HERO SECTION
+   8. INDEX HERO SECTION
    ==================== */
 
-#hero {
-  padding: 4.5rem 0rem 1rem 2rem;
+#index-hero {
   background: url("/assets/images/IMG_7662.png") calc(100% + 90px)
       calc(100% + 50px) / 80% no-repeat,
     linear-gradient(135deg, var(--color-coral-50), var(--color-mint-100));
@@ -618,7 +704,7 @@ nav #menuToggle {
 }
 
 /* ====================
-   WHY NSE IS DIFFERENT SECTION
+   INDEX WHY NSE IS DIFFERENT SECTION
    ==================== */
 #why {
   background: url("/assets/images/joel-jasmin-forestbird-znoL1m6MD_k-unsplash.jpg")
@@ -654,7 +740,7 @@ nav #menuToggle {
 }
 
 /* ====================
-   UPCOMING COURSES SECTION
+   9. INDEX UPCOMING COURSES SECTION
    ==================== */
 #courses {
   padding: 2rem 1rem;
@@ -714,7 +800,7 @@ nav #menuToggle {
 }
 
 /* ====================
-   COURSE CAROUSEL
+   10. INDEX COURSE CAROUSEL
    ==================== */
 
 .course-carousel {
@@ -777,7 +863,7 @@ nav #menuToggle {
 }
 
 /* ====================
-   WHO AM I SECTION
+   11. INDEX WHO AM I SECTION
    ==================== */
 
 #about {
@@ -828,12 +914,45 @@ nav #menuToggle {
 }
 
 /* ====================
-   FOOTER
+   12. PODCASTS
+   ==================== */
+
+.podcast-page {
+  background-image: url("/assets/images/main\ \ background.jpg");
+  background-size: cover;
+  background-position: right;
+}
+
+#podcasts-main {
+  backdrop-filter: blur(24px);
+}
+
+/* Hero section */
+#podcast-hero .subtitle {
+  padding-right: 1rem;
+}
+
+/* ====================
+   13. PODCASTS EPISODE SECTION
+   ==================== */
+
+#episodes {
+  padding: 0rem 1rem 3rem 1rem;
+}
+
+#episodes-title {
+  color: var(--color-gray-900);
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* ====================
+   *. FOOTER
    ==================== */
 
 footer {
   background-color: var(--color-coral-300);
-  padding: 1rem;
+  padding: 1rem 1rem 0.1rem 1rem;
   color: white;
 }
 

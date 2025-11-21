@@ -1,77 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- base head -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Podcast – Next Step English</title>
+    <title>Next Step English — Break Your Plateau</title>
     <meta
       name="description"
-      content="Listen to the Next Step English podcast: comprehensible input, real-world topics, and weekly episodes for intermediate learners."
+      content="Break your English plateau with real-world input: podcast, videos, and weekly lessons via email."
     />
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="canonical" href="https://nextstepenglishguide.com/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Next Step English — Break Your Plateau"
+    />
+    <meta
+      property="og:description"
+      content="Authentic input and simple routines to help you finally move forward."
+    />
+    <meta
+      property="og:image"
+      content="https://nextstepenglishguide.com/assets/img/og-cover.jpg"
+    />
+    <meta property="og:url" content="https://nextstepenglishguide.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+  <body class="podcast-page">
+    <nav class="header-nav" role="navigation">
+      <img
+        src="/assets/images/full logo white.png"
+        alt="Next Step English Logo"
+      />
+      <div id="menuToggle">
+        <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+        <input type="checkbox" id="menuCheckbox" />
 
-    <header role="banner">
-      <div class="container">
-        <div class="brand">
-          <a href="/" aria-label="Next Step English home">
-            <strong>Next Step English</strong>
-          </a>
-        </div>
-        <nav aria-label="Primary">
-          <ul>
-            <li><a href="/podcast.html" aria-current="page">Podcast</a></li>
-            <li><a href="/videos.html">Videos</a></li>
-            <li><a href="/weekly-lessons.html">Weekly Lessons</a></li>
-            <li><a href="/about.html">About</a></li>
-          </ul>
-        </nav>
-        <nav aria-label="Utility">
-          <ul>
-            <li>
-              <a
-                href="https://www.youtube.com/@NextStepEnglish"
-                target="_blank"
-                rel="noopener"
-                >YouTube</a
+        <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+        <ul id="menu">
+          <!-- 
+      We can use a label here to close upon click (when doing same page navigation), this
+      does require a slight bit of JS.
+      -->
+          <li>
+            <a href="/index.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Home</label
               >
-            </li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-        </nav>
+            </a>
+          </li>
+          <li>
+            <a href="/podcasts.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Podcasts</label
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/videos.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Videos</label
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/weekly-lessons.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Weekly Lessons</label
+              >
+            </a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
 
-    <main id="main">
+    <main id="podcasts-main">
       <!-- PAGE HERO -->
-      <section id="podcast-hero" aria-labelledby="podcast-hero-title">
+      <section
+        class="hero"
+        id="podcast-hero"
+        aria-labelledby="podcast-hero-title"
+      >
         <div class="container">
-          <p class="kicker">Next Step</p>
-          <h1 id="podcast-hero-title">Comprehensible <span>Input</span></h1>
+          <h1 id="hero-title">Next Step Podcast</h1>
           <p class="subtitle">
-            Understand natural English with clear, level-appropriate episodes.
+            Take the next step in your English with episodes designed to help
+            you understand more, naturally.
           </p>
-          <!-- Optional: buttons to platforms -->
-          <div class="platform-cta">
-            <!-- Replace hrefs later -->
-            <a class="btn" href="#" aria-label="Listen on Spotify">Spotify</a>
-            <a class="btn" href="#" aria-label="Listen on Apple Podcasts"
-              >Apple Podcasts</a
-            >
-            <a
-              class="btn"
-              href="https://www.youtube.com/@NextStepEnglish"
-              target="_blank"
-              rel="noopener"
-              aria-label="Watch on YouTube"
-              >YouTube</a
-            >
-          </div>
         </div>
       </section>
 
-      <!-- OPTIONAL: SEARCH / FILTER -->
+      <!-- OPTIONAL: SEARCH / FILTER -- ADD LATER -->
+      <!-- 
       <section id="podcast-filter" aria-label="Search and filter episodes">
         <div class="container">
           <form action="#" method="get" role="search">
@@ -84,10 +122,9 @@
             />
             <button type="submit">Search</button>
           </form>
-          <!-- Future: tag filters -->
         </div>
       </section>
-
+    -->
       <!-- EPISODE LIST -->
       <section id="episodes" aria-labelledby="episodes-title">
         <div class="container">
@@ -95,30 +132,30 @@
 
           <ol class="episode-list">
             <!-- Episode card -->
-            <li>
-              <article class="episode" aria-labelledby="ep1-title">
+            <li class="podcast-card">
+              <a
+                href="/podcasts/episode1_comprehensible_input.html"
+                class="episode podcast-card__content"
+                aria-labelledby="ep1-title"
+              >
                 <header>
-                  <h3 id="ep1-title">
-                    <a href="/podcast/ep-1-learn-english-naturally.html">
-                      Ep 1. Learn English Naturally
-                    </a>
+                  <h3 id="ep1-title" class="podcast-card__title">
+                    Ep 1. Learn English Naturally
                   </h3>
-                  <p class="eyebrow">Comprehensible Input</p>
                 </header>
 
-                <p class="summary">
+                <p class="summary podcast-card__desc">
                   What is “comprehensible input,” and why does it help you
                   progress faster? A friendly breakdown with real examples you
                   can try this week.
                 </p>
 
-                <ul class="meta">
+                <ul class="podcast-card__meta">
                   <li><time datetime="2025-11-13">Nov 13, 2025</time></li>
                   <li>~18 min</li>
                   <!-- Add episode number, season, etc. if needed -->
                 </ul>
-
-                <ul class="tags" aria-label="Episode tags">
+                <ul class="podcast-card_tags" aria-label="Episode tags">
                   <li>
                     <a href="/tags/natural-english.html">#Natural English</a>
                   </li>
@@ -132,39 +169,13 @@
                       >#Comprehensible Input</a
                     >
                   </li>
-                  <li>
-                    <a href="/tags/stephen-krashen.html">#Stephen Krashen</a>
-                  </li>
                 </ul>
-
-                <div class="episode-actions">
-                  <a
-                    class="btn"
-                    href="/podcast/ep-1-learn-english-naturally.html"
-                    >Episode page</a
-                  >
-                  <a class="btn" href="#" aria-label="Play on Spotify"
-                    >Spotify</a
-                  >
-                  <a class="btn" href="#" aria-label="Play on Apple Podcasts"
-                    >Apple</a
-                  >
-                  <a
-                    class="btn"
-                    href="https://www.youtube.com/@NextStepEnglish"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Watch on YouTube"
-                    >YouTube</a
-                  >
-                </div>
-
-                <!-- Optional: embed slot (fill later with Spotify/Apple/YouTube) -->
-                <!--
-              <div class="player-embed" aria-label="Embedded player">
-                <iframe src="" title="Episode 1 player" loading="lazy"></iframe>
-              </div>
-              --></article>
+                <img
+                  src="/assets/images/pexels-olly-901236 black and white.png"
+                  alt="listening to a podcast"
+                  class="podcast-card__image"
+                />
+              </a>
             </li>
 
             <!-- Duplicate <li> blocks for future episodes -->
@@ -174,35 +185,40 @@
           </li>
           --></ol>
 
-          <!-- Pagination (optional) -->
+          <!-- Pagination (ADD LATER)
           <nav class="pagination" aria-label="Episodes pagination">
             <a class="prev" href="#" aria-disabled="true">Previous</a>
             <a class="next" href="#">Next</a>
           </nav>
-        </div>
+        --></div>
+      </section>
+      <section class="coming-soon-section">
+        <h2 class="coming-soon-message">More Episodes Coming Soon!</h2>
       </section>
     </main>
 
     <footer role="contentinfo">
-      <div class="container">
-        <nav aria-label="Footer">
-          <ul>
-            <li><a href="/contact.html">Contact</a></li>
-            <li>
-              <a
-                href="https://www.youtube.com/@NextStepEnglish"
-                target="_blank"
-                rel="noopener"
-                >YouTube</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <p>
-          &copy; <span id="year"></span> Next Step English. All rights reserved.
-        </p>
-      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <img src="/assets/images/full logo white.png" alt="" />
+        <ul>
+          <li><a href="mailto:englishwithlawton@gmail.com">Contact</a></li>
+          <li>
+            <a
+              href="https://www.youtube.com/@Next_Step_English"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </li>
+          <!-- Add socials as needed -->
+        </ul>
+      </nav>
+      <p class="site-footer__copy">
+        &copy; <span id="footer-year"></span> Next Step English. All rights
+        reserved.
+      </p>
       <script>
+        // Tiny helper for the footer year
         document.getElementById("year").textContent = new Date().getFullYear();
       </script>
     </footer>
