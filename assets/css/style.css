@@ -1062,6 +1062,7 @@ nav #menuToggle {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  min-height: 525px;
   padding-bottom: 2rem;
 }
 
