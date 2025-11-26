@@ -1,59 +1,109 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
+    <!-- base head -->
     <meta charset="utf-8" />
-    <title>Weekly Lessons – Next Step English</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Next Step English — Break Your Plateau</title>
     <meta
       name="description"
-      content="Get one short, useful English lesson in your inbox every week to help you reach the next level."
+      content="Break your English plateau with real-world input: podcast, videos, and weekly lessons via email."
     />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="canonical" href="https://nextstepenglishguide.com/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Next Step English — Break Your Plateau"
+    />
+    <meta
+      property="og:description"
+      content="Authentic input and simple routines to help you finally move forward."
+    />
+    <meta
+      property="og:image"
+      content="https://nextstepenglishguide.com/assets/img/og-cover.jpg"
+    />
+    <meta property="og:url" content="https://nextstepenglishguide.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
-  <body>
-    <!-- Site Header (duplicated for now; refactor later) -->
-    <header class="site-header" role="banner">
-      <div class="container header__inner">
-        <a href="/index.html" class="site-logo">
-          <span class="site-logo__mark">Next Step</span>
-          <span class="site-logo__text">Next Step English</span>
-        </a>
+  <body id="weekly-lessons-body">
+    <nav class="header-nav" role="navigation">
+      <img
+        src="/assets/images/full logo white.png"
+        alt="Next Step English Logo"
+      />
+      <div id="menuToggle">
+        <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+        <input type="checkbox" id="menuCheckbox" />
 
-        <nav class="main-nav" aria-label="Main navigation">
-          <ul class="main-nav__list">
-            <li class="main-nav__item">
-              <a href="/podcasts.html" class="main-nav__link">Podcast</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="/videos.html" class="main-nav__link">Videos</a>
-            </li>
-            <li class="main-nav__item">
-              <a
-                href="/weekly-lessons.html"
-                class="main-nav__link main-nav__link--active"
+        <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+        <ul id="menu">
+          <!-- 
+      We can use a label here to close upon click (when doing same page navigation), this
+      does require a slight bit of JS.
+      -->
+          <li>
+            <a href="/index.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Home</label
               >
-                Weekly Lessons
-              </a>
-            </li>
-            <li class="main-nav__item">
-              <a href="/contact.html" class="main-nav__link">Contact</a>
-            </li>
-          </ul>
-        </nav>
+            </a>
+          </li>
+          <li>
+            <a href="/podcasts.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Podcasts</label
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/videos.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Videos</label
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/weekly-lessons.html">
+              <label for="menuCheckbox" onclick="this.parentNode.click();"
+                >Weekly Lessons</label
+              >
+            </a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
 
-    <main id="main-content">
+    <main id="signup-main-content">
       <!-- Hero / Signup section -->
-      <section class="signup-hero" aria-labelledby="signup-heading">
+      <section class="signup-hero hero" aria-labelledby="signup-heading">
         <div class="container signup-hero__inner">
           <header class="signup-hero__header">
-            <p class="signup-hero__eyebrow">Weekly Lessons</p>
             <h1 id="signup-heading">
-              Get one short, useful English lesson in your inbox every week
+              Learn Real English, One Lesson at a Time
             </h1>
             <p class="signup-hero__subtitle">
-              One FREE email lesson per week to help you reach the next level.
+              Get one short, useful English lesson in your inbox every week to
+              help you reach the next level!
             </p>
           </header>
 
@@ -63,6 +113,7 @@
           >
             <!-- This is where you’ll later plug in MailerLite’s embed or your own POST -->
             <form class="signup-form" method="post" action="#" novalidate>
+              <p id="sales-text">One FREE email lesson per week!</p>
               <div class="signup-form__field">
                 <label for="email">Your email</label>
                 <input
@@ -75,68 +126,48 @@
                 />
               </div>
 
-              <button type="submit" class="signup-form__button">
+              <button
+                type="submit"
+                class="btn btn--primary"
+                id="signup-form__button"
+              >
                 Sign me up!
               </button>
 
-              <p class="signup-form__note">
-                No spam. Just one helpful English lesson each week.
-              </p>
+              <img
+                src="/assets/images/full logo white.png"
+                alt="Next Step English Logo"
+                id="signup-logo"
+              />
             </form>
           </section>
-        </div>
-      </section>
-
-      <!-- Optional: small reassurance / microcopy section (easy to remove if not needed) -->
-      <section class="signup-benefits" aria-label="What you’ll get each week">
-        <div class="container signup-benefits__inner">
-          <h2>What you’ll get</h2>
-          <ul class="signup-benefits__list">
-            <li>
-              1 short, focused English lesson you can read in a few minutes.
-            </li>
-            <li>Real-life examples you can use in conversation right away.</li>
-            <li>Links to extra videos and practice when you have more time.</li>
-          </ul>
         </div>
       </section>
     </main>
 
     <!-- Site Footer (duplicated for now) -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="container site-footer__inner">
-        <div class="site-footer__brand">
-          <p class="site-footer__title">Next Step English</p>
-          <p class="site-footer__tagline">
-            Take the next step in your English journey.
-          </p>
-        </div>
-
-        <nav class="site-footer__nav" aria-label="Footer navigation">
-          <ul class="site-footer__list">
-            <li><a href="/podcasts.html">Podcast</a></li>
-            <li><a href="/videos.html">Videos</a></li>
-            <li><a href="/weekly-lessons.html">Weekly Lessons</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-            <li>
-              <a
-                href="https://www.youtube.com/@NextStepEnglish"
-                target="_blank"
-                rel="noopener"
-              >
-                YouTube
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <p class="site-footer__copy">
-          &copy; <span id="footer-year"></span> Next Step English. All rights
-          reserved.
-        </p>
-      </div>
-
+    <footer role="contentinfo">
+      <nav class="footer-nav" aria-label="Footer">
+        <img src="/assets/images/full logo white.png" alt="" />
+        <ul>
+          <li><a href="mailto:englishwithlawton@gmail.com">Contact</a></li>
+          <li>
+            <a
+              href="https://www.youtube.com/@Next_Step_English"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </li>
+          <!-- Add socials as needed -->
+        </ul>
+      </nav>
+      <p class="site-footer__copy">
+        &copy; <span id="footer-year"></span> Next Step English. All rights
+        reserved.
+      </p>
       <script>
+        // Tiny helper for the footer year
         document.getElementById("footer-year").textContent =
           new Date().getFullYear();
       </script>
