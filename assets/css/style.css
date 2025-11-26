@@ -492,7 +492,7 @@ h3 {
 nav.header-nav {
   position: fixed;
   z-index: 999;
-  width: 100%;
+  width: 100vw;
   background-color: var(--color-mint-400);
   height: 64px;
   padding-top: 10px;
@@ -500,7 +500,7 @@ nav.header-nav {
   margin-bottom: 1rem;
 }
 
-nav > img {
+#nav-logo {
   width: 150px;
 }
 
@@ -510,7 +510,6 @@ nav #menuToggle {
   position: fixed;
   top: 25px;
   right: 25px;
-
   z-index: 1;
 
   -webkit-user-select: none;
@@ -1154,4 +1153,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer-nav img {
+  width: 150px;
 }
