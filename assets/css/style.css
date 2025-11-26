@@ -1062,7 +1062,8 @@ nav #menuToggle {
     no-repeat;
   flex-grow: 1;
   display: flex;
-  min-height: 500px;
+  min-height: 525px;
+  padding-top: 50px;
 }
 
 .signup-hero__header {
