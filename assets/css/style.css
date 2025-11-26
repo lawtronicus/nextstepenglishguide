@@ -1131,7 +1131,6 @@ nav #menuToggle {
   border-bottom: 3px solid white;
   border-right: 3px solid white;
   align-self: flex-end;
-  margin-bottom: 2rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
