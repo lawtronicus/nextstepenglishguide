@@ -1058,12 +1058,15 @@ nav #menuToggle {
 }
 
 .signup-form-section {
+  /*
   background: url("/assets/images/IMG_7662.png") calc(50%) calc(100%) / 110%
     no-repeat;
+    */
   flex-grow: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   min-height: 525px;
-  padding-top: 50px;
 }
 
 .signup-hero__header {
@@ -1132,6 +1135,13 @@ nav #menuToggle {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+#signup-image {
+  grid-row: 1;
+  grid-column: 1;
 }
 
 #email {
