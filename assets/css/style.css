@@ -500,6 +500,11 @@ nav.header-nav {
   margin-bottom: 1rem;
 }
 
+#nav-logo-link {
+  display: block;
+  width: 150px;
+}
+
 #nav-logo {
   width: 150px;
 }
