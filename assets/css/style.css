@@ -1062,7 +1062,7 @@ nav #menuToggle {
     no-repeat;
   flex-grow: 1;
   display: flex;
-  min-height: 525px;
+  min-height: 500px;
 }
 
 .signup-hero__header {
