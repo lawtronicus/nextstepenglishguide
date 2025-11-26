@@ -806,6 +806,11 @@ nav #menuToggle {
   grid-row: 5;
 }
 
+#course-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
 /* ====================
    10. INDEX COURSE CAROUSEL
    ==================== */

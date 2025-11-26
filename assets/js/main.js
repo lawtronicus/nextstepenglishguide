@@ -22,5 +22,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   nextBtn.addEventListener("click", goToNext);
-  // prevBtn.addEventListener("click", goToPrev);
+  prevBtn.addEventListener("click", goToPrev);
 });
