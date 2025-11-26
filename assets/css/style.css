@@ -22,8 +22,6 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
 }
 
 /* Make images and embeds behave */
@@ -1170,7 +1168,6 @@ footer {
   background-color: var(--color-coral-300);
   padding: 1rem 1rem 0.1rem 1rem;
   color: white;
-  justify-self: flex-end;
 }
 
 .footer-nav {
