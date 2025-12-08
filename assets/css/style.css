@@ -407,7 +407,7 @@ h3 {
 
 /* Hero for each page */
 .hero {
-  padding: 4.5rem 0rem 1rem 2rem;
+  padding: 4.5rem 0rem 0rem 2rem;
 }
 
 /* Generic section wrapper */
@@ -509,7 +509,7 @@ nav.header-nav {
   width: 150px;
 }
 
-nav #menuToggle {
+#menuToggle {
   display: block;
   /* You can also use relative/absolute here if you want to stay on the top */
   position: fixed;
@@ -530,6 +530,7 @@ nav #menuToggle {
 
 #menuToggle a:hover {
   color: var(--color-coral-300);
+  font-weight: 600;
 }
 
 #menuToggle input {
@@ -688,14 +689,107 @@ nav #menuToggle {
   letter-spacing: 0.03em;
 }
 
+/*======= NAV FOR DEVICES ABOVE 767px =======*/
+
+@media (min-width: 768px) {
+  /* Keep nav as a bar, but lay things out normally */
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  /* #menuToggle becomes just a simple container on the right */
+  #menuToggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    top: auto;
+    right: auto;
+  }
+
+  /* Hide the hamburger lines and checkbox */
+  #menuToggle input,
+  #menuToggle span {
+    display: none;
+  }
+
+  /* Turn #menu into an inline list */
+  #menu {
+    position: static;
+    transform: none;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+
+    /* resets */
+    margin: 0;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    right: auto;
+    top: auto;
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu li a {
+    color: #ffffff; /* nav text color on desktop */
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  #menu li a:hover {
+    text-decoration: underline; /* or your hover style */
+  }
+
+  #menu::before {
+    content: none;
+    display: none;
+  }
+}
+
+/* ====== NAV for screens above 1400 ====== */
+@media (min-width: 1400px) {
+  nav.header-nav {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}
+
 /* ====================
    8. INDEX HERO SECTION
    ==================== */
 
+#hero-index-container {
+  max-width: 800px;
+}
+
 #index-hero {
-  background: url("/assets/images/IMG_7662.png") calc(100% + 90px)
-      calc(100% + 50px) / 80% no-repeat,
-    linear-gradient(135deg, var(--color-coral-50), var(--color-mint-100));
+  background: linear-gradient(
+    135deg,
+    var(--color-coral-50),
+    var(--color-mint-100)
+  );
+}
+
+#index-hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 520px;
+  padding-bottom: 1rem;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 #hero-title {
@@ -707,47 +801,70 @@ nav #menuToggle {
   font-size: 20px;
 }
 
-/* ====================
-   INDEX WHY NSE IS DIFFERENT SECTION
-   ==================== */
-#why {
-  background: url("/assets/images/joel-jasmin-forestbird-znoL1m6MD_k-unsplash.jpg")
-    center/cover no-repeat;
-  height: 470px;
-  padding: 1rem 1.5rem;
-}
-
-#why-card {
-  text-align: center;
-  backdrop-filter: blur(8px) saturate(180%);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.25),
-    rgba(0, 0, 0, 0.25)
-  );
-  border-radius: 12px;
-  border: 1px solid white;
-  border-right: 3px solid white;
-  border-bottom: 3px solid white;
-}
-
-#why-title {
-  font-size: 30px;
+.hero-media {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  grid-column: 2;
+  grid-row: 1;
   margin: 0;
-  color: white;
+  max-width: 300px;
 }
 
-#why-card > ul {
-  padding: 1rem;
-  font-size: 18px;
-  text-align: left;
-  list-style-type: disc;
-  color: white;
+.hero-media__img {
+  width: 600px;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+@media (max-width: 404px) {
+  .hero-media__img {
+    display: none;
+  }
+
+  #index-hero .container {
+    grid-template-columns: 1fr;
+  }
+
+  .new-course {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .course-carousel__viewport {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #index-hero .container {
+    gap: 2rem;
+  }
+
+  .hero-media {
+    justify-content: flex-end;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  #hero-title {
+    font-size: 45px;
+  }
+
+  .hero-subtitle {
+    width: auto;
+    font-size: 26px;
+  }
+
+  .hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }
 
 /* ====================
-   9. INDEX UPCOMING COURSES SECTION
+   8. INDEX UPCOMING COURSES SECTION
    ==================== */
 #courses {
   padding: 2rem 1rem;
@@ -812,7 +929,7 @@ nav #menuToggle {
 }
 
 /* ====================
-   10. INDEX COURSE CAROUSEL
+   9. INDEX COURSE CAROUSEL
    ==================== */
 
 .course-carousel {
@@ -874,8 +991,51 @@ nav #menuToggle {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
+@media (min-width: 768px) {
+  #courses-title {
+    font-size: 45px;
+    margin: 1rem;
+  }
+}
+
+@media (min-width: 1399px) {
+  #courses {
+    display: flex;
+    justify-content: center;
+  }
+
+  #courses .container {
+    margin: 0 0;
+    max-width: 100%;
+  }
+
+  .carousel__btn {
+    display: none;
+  }
+
+  .course-carousel__viewport {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .new-course {
+    max-width: 400px;
+    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .course-carousel__track {
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .course-carousel__track .card {
+    min-width: 400px;
+  }
+}
+
 /* ====================
-   11. INDEX WHO AM I SECTION
+   10. INDEX WHO AM I SECTION
    ==================== */
 
 #about {
@@ -890,6 +1050,7 @@ nav #menuToggle {
   justify-content: center;
   align-items: center;
   background-color: var(--color-mint-100);
+  max-width: 500px;
 }
 
 #about-title {
@@ -918,6 +1079,8 @@ nav #menuToggle {
 .about-copy {
   display: flex;
   flex-direction: column;
+  font-size: 18px;
+  margin: auto 1rem;
 }
 
 #bio-title {
@@ -925,8 +1088,31 @@ nav #menuToggle {
   justify-self: center;
 }
 
+@media (min-width: 768px) {
+  #about-title {
+    font-size: 45px;
+    margin: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  #bio-title {
+    font-size: 30px;
+  }
+
+  #bio-photo {
+    background: linear-gradient(
+      90deg,
+      var(--color-coral-300),
+      var(--color-coral-100)
+    );
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+  }
+}
+
 /* ====================
-   12. PODCASTS / VIDEOS PAGES
+   11. PODCASTS / VIDEOS PAGES
    ==================== */
 
 .podcasts-videos-page {
@@ -945,7 +1131,7 @@ nav #menuToggle {
 }
 
 /* ====================
-   13. PODCASTS EPISODE SECTION
+   12. PODCASTS EPISODE SECTION
    ==================== */
 
 #episodes {
@@ -959,7 +1145,7 @@ nav #menuToggle {
 }
 
 /* ====================
-   14. INDIVIDUAL PODCAST EPISODE PAGE
+   13. INDIVIDUAL PODCAST EPISODE PAGE
    ==================== */
 
 .episode-hero {
@@ -1048,16 +1234,14 @@ nav #menuToggle {
 }
 
 .signup-hero {
-  padding-right: 2rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   padding-bottom: 0;
+  padding-left: 0;
 }
 
 .signup-form-section {
-  background: url("/assets/images/IMG_7662.png") calc(50%) calc(100%) / 110%
-    no-repeat;
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr;
@@ -1080,6 +1264,7 @@ nav #menuToggle {
   border-bottom: 3px solid white;
   border-right: 3px solid white;
   margin: 1rem 0;
+  padding: 0rem 1rem;
 }
 
 #sales-text {
@@ -1104,6 +1289,7 @@ nav #menuToggle {
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  max-width: 400px;
 }
 
 .signup-form__field {
@@ -1154,6 +1340,15 @@ nav #menuToggle {
   align-self: center;
 }
 
+#weekly-lesson-background-image {
+  position: fixed;
+  width: 285px;
+  bottom: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
 /* ====================
    *. FOOTER
    ==================== */
@@ -1162,6 +1357,7 @@ footer {
   background-color: var(--color-coral-300);
   padding: 1rem 1rem 0.1rem 1rem;
   color: white;
+  height: 126px;
 }
 
 .footer-nav {
@@ -1172,4 +1368,10 @@ footer {
 
 .footer-nav img {
   width: 150px;
+}
+
+@media (max-width: 360px) {
+  .site-footer__copy {
+    font-size: 12px;
+  }
 }
