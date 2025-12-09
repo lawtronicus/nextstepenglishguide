@@ -844,6 +844,12 @@ nav.header-nav {
     .new-course {
       align-items: center;
     }
+
+    .card__tag {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .course-carousel__viewport {
