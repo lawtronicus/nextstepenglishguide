@@ -1235,10 +1235,11 @@ nav.header-nav {
 
 .signup-hero {
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
   padding-bottom: 0;
   padding-left: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .signup-form-section {
@@ -1290,6 +1291,8 @@ nav.header-nav {
   justify-content: space-between;
   flex-grow: 1;
   max-width: 400px;
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .signup-form__field {
@@ -1341,12 +1344,12 @@ nav.header-nav {
 }
 
 #weekly-lesson-background-image {
-  position: fixed;
-  width: 285px;
-  bottom: 65px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 275px;
   z-index: -1;
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: center;
+  align-self: flex-end;
 }
 
 /* ====================
