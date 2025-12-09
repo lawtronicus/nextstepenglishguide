@@ -332,6 +332,7 @@ h3 {
   display: flex;
   flex-direction: column;
   box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
 }
 
 /* Text section */
@@ -407,7 +408,14 @@ h3 {
 
 /* Hero for each page */
 .hero {
-  padding: 4.5rem 0rem 0rem 2rem;
+  padding: 4.5rem 2rem 0rem 0rem;
+}
+
+@media (min-width: 324px) {
+  .hero {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /* Generic section wrapper */
@@ -1154,25 +1162,30 @@ nav.header-nav {
    13. INDIVIDUAL PODCAST EPISODE PAGE
    ==================== */
 
-.episode-hero {
+#pod-episode-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
 }
 
-#pod-episode-main-content {
-  padding-right: 2rem;
-  color: var(--color-gray-900);
+.episode {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
 }
 
 .pod-episode-image {
   border-radius: 1rem;
 }
 
-#shorts-heading {
-  color: var(--color-gray-900);
-}
-
 /* ====================
    14. VIDEOS PAGE
    ==================== */
+
+#shorts-heading {
+  color: var(--color-gray-900);
+}
 
 .videos-page {
   background-image: url("/assets/images/main\ \ background.jpg");
@@ -1245,10 +1258,16 @@ nav.header-nav {
 .signup-hero {
   flex-grow: 1;
   padding-bottom: 0;
-  padding-left: 0;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
+}
+
+@media (max-width: 324px) {
+  .signup-hero {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .signup-form-section {
