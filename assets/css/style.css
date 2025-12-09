@@ -840,7 +840,7 @@ nav.header-nav {
     flex-direction: column;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 404px) {
     .new-course {
       align-items: center;
     }
