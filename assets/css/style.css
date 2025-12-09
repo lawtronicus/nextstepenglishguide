@@ -428,7 +428,7 @@ h3 {
 
 /* Width limiter */
 .container {
-  max-width: 1120px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
@@ -1115,6 +1115,9 @@ nav.header-nav {
    11. PODCASTS / VIDEOS PAGES
    ==================== */
 
+.videos-section {
+}
+
 .podcasts-videos-page {
   background-image: url("/assets/images/main\ \ background.jpg");
   background-size: cover;
@@ -1123,9 +1126,12 @@ nav.header-nav {
 
 #podcasts-videos-main {
   backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Hero section */
+
 #podcasts-videos-hero .subtitle {
   padding-right: 1rem;
 }
@@ -1160,10 +1166,6 @@ nav.header-nav {
   border-radius: 1rem;
 }
 
-#all-videos {
-  padding: 0rem 1rem 3rem 1rem;
-}
-
 #shorts-heading {
   color: var(--color-gray-900);
 }
@@ -1179,8 +1181,10 @@ nav.header-nav {
 }
 
 .videos-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 1.5rem;
 }
 
@@ -1189,6 +1193,7 @@ nav.header-nav {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 400px;
 }
 
 .video-card__thumb-wrap {
@@ -1213,6 +1218,10 @@ nav.header-nav {
   line-height: 1.4;
   padding: 0.75rem 1rem 1rem;
   color: #2f2f2f;
+}
+
+#all-videos {
+  padding: 0rem 1rem 3rem 1rem;
 }
 
 /* ====================
