@@ -1375,3 +1375,10 @@ footer {
     font-size: 12px;
   }
 }
+
+@media (min-width: 1400px) {
+  footer {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}
