@@ -102,24 +102,39 @@
           <div class="hero-copy">
             <h1 id="hero-title">Take Your English to the Next Level!</h1>
             <p class="hero-subtitle">
-              <span id="cta-emphasis">FREE</span> Weekly lessons, videos, and
-              podcasts to help you improve naturally!
+              <span id="cta-emphasis">FREE</span> weekly lessons delivered by
+              email to help you improve naturally!
             </p>
 
-            <!-- CTA button instead of form -->
-            <a href="/weekly-lessons.html" class="btn btn--primary"
-              >Get the Weekly Lesson</a
-            >
-          </div>
+            <form id="index-signup" method="post" action="#" novalidate>
+              <div class="signup-form__field">
+                <label id="index-signup__label" for="email">Your email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                />
+              </div>
 
-          <!-- Optional hero media (photo/illustration) -->
-          <figure class="hero-media">
-            <img
-              src="/assets/images/IMG_7662.png"
-              alt="Lawton Hogan of Next Step English"
-              class="hero-media__img"
-            />
-          </figure>
+              <button
+                type="submit"
+                class="btn btn--primary"
+                id="signup-form__button"
+              >
+                Sign me up!
+              </button>
+            </form>
+            <figure class="hero-media">
+              <img
+                src="/assets/images/IMG_7662.png"
+                alt="Lawton Hogan of Next Step English"
+                class="hero-media__img"
+              />
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -255,13 +270,14 @@
             <div class="about-copy">
               <h3 id="bio-title">Lawton</h3>
               <p>
-                Lawton began teaching almost 20 years ago, and since then has
-                taught both children and adults from multiple different
-                countries at all different levels of English proficiency. As a
-                language learner, Lawton often found that going from
-                intermediate to advanced was the hardest jump. He created Next
-                Step English to help English learners break through this
-                plateau.
+                Hi! My name is Lawton! I began teaching almost 20 years ago, and
+                since then I have taught both children and adults from multiple
+                different countries at all different levels of English
+                proficiency. I am also a language learner! I have achieved an
+                advanced level of both French and Korean. As a learner, I have
+                often found that going from intermediate to advanced was the
+                hardest jump. I created Next Step English to help English
+                learners break through this plateau.
               </p>
               <!-- Optional contact CTA -->
               <!-- <p><a href="/contact.html" class="button">Contact</a></p> -->

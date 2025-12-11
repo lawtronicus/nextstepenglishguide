@@ -413,8 +413,8 @@ h3 {
 
 @media (min-width: 324px) {
   .hero {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -786,59 +786,98 @@ nav.header-nav {
   );
 }
 
-#index-hero .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  align-items: center;
-}
-
 #cta-emphasis {
   font-size: 32px;
   font-weight: 900;
   color: var(--color-coral-300);
 }
 
+#index-signup__label {
+  color: var(--color-gray-900);
+}
+
 .hero-copy {
-  max-width: 520px;
-  padding-bottom: 1rem;
-  grid-column: 1;
-  grid-row: 1;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
 }
 
 #hero-title {
-  color: var(--color-mint-400);
+  padding-top: 2rem;
+  grid-row: 1;
+  grid-column: 1;
+  z-index: 0;
 }
 
 .hero-subtitle {
-  width: 200px;
+  grid-row: 2;
+  grid-column: 1;
   font-size: 20px;
+  margin: 0;
+}
+
+#index-signup {
+  grid-column: 1;
+  grid-row: 3;
+  z-index: 999;
 }
 
 .hero-media {
   display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 1/4;
+  align-self: flex-end;
+  justify-self: flex-end;
   margin: 0;
-  max-width: 300px;
+  max-width: 250px;
+  min-width: 0px;
+  z-index: 0;
 }
 
 .hero-media__img {
-  width: 600px;
+  min-width: 180px;
   height: auto;
-  display: block;
+}
+
+#hero-title {
+  color: var(--color-mint-400);
   margin: 0;
+}
+
+@media (min-width: 565px) {
+  .hero-media {
+    justify-self: flex-start;
+    align-self: flex-end;
+  }
+}
+
+@media (min-width: 600px) {
+  .hero-copy {
+    gap: 0;
+  }
+  #hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 676px) {
+  #hero-title {
+    font-size: 40px;
+  }
+
+  .hero-subtitle {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 404px) {
   .hero-media__img {
     display: none;
-  }
-
-  #index-hero .container {
-    grid-template-columns: 1fr;
   }
 
   .new-course {
@@ -856,36 +895,14 @@ nav.header-nav {
       display: flex;
       justify-content: center;
     }
+
+    .hero-media {
+      width: 80%;
+    }
   }
 
   .course-carousel__viewport {
     max-width: 100% !important;
-  }
-}
-
-@media (min-width: 768px) {
-  #index-hero .container {
-    gap: 2rem;
-  }
-
-  .hero-media {
-    justify-content: flex-end;
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  #hero-title {
-    font-size: 45px;
-  }
-
-  .hero-subtitle {
-    width: auto;
-    font-size: 26px;
-  }
-
-  .hero-copy {
-    grid-column: 1;
-    grid-row: 1;
   }
 }
 
