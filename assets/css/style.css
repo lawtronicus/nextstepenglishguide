@@ -793,6 +793,12 @@ nav.header-nav {
   align-items: center;
 }
 
+#cta-emphasis {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-coral-300);
+}
+
 .hero-copy {
   max-width: 520px;
   padding-bottom: 1rem;
