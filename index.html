@@ -106,16 +106,25 @@
               email to help you improve naturally!
             </p>
 
-            <form id="index-signup" method="post" action="#" novalidate>
+            <form
+              id="index-signup"
+              method="post"
+              action="https://assets.mailerlite.com/jsonp/1983037/forms/173831068682552596/subscribe"
+              data-code=""
+              target="_blank"
+            >
               <div class="signup-form__field">
                 <label id="index-signup__label" for="email">Your email</label>
                 <input
-                  type="email"
                   id="email"
-                  name="email"
-                  required
+                  aria-label="email"
+                  aria-required="true"
+                  type="email"
+                  class="form-control"
+                  data-inputmask=""
+                  name="fields[email]"
+                  placeholder="Your Email"
                   autocomplete="email"
-                  placeholder="you@example.com"
                 />
               </div>
 
