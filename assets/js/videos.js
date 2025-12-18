@@ -4,6 +4,7 @@ const LONG_PLAYLIST_ID = "PLBHyrORCfFQIsnCiu86ACWdxQOVXcePRh";
 
 const MAX_RESULTS = 12;
 
+//get videos
 async function fetchPlaylistVideos(playlistId) {
   const endpoint = new URL(
     "https://www.googleapis.com/youtube/v3/playlistItems",
@@ -25,6 +26,7 @@ async function fetchPlaylistVideos(playlistId) {
   return data.items || [];
 }
 
+// create card for video
 function createVideoCard(item) {
   const videoId = item.contentDetails.videoId;
   const title = item.snippet.title;
@@ -48,6 +50,7 @@ function createVideoCard(item) {
   return card;
 }
 
+//display videos
 async function renderPlaylist(playlistId, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -70,6 +73,7 @@ async function renderPlaylist(playlistId, containerId) {
   }
 }
 
+//render videos when page loads
 document.addEventListener("DOMContentLoaded", () => {
   renderPlaylist(LONG_PLAYLIST_ID, "videos-grid--full");
   renderPlaylist(SHORTS_PLAYLIST_ID, "videos-grid--shorts");
