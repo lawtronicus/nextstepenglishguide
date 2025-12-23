@@ -48,13 +48,13 @@ document.querySelectorAll(".js-email-subscriber").forEach((form) => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Honeypot (if you add it)
-    const hp = form.querySelector('input[name="company"]');
+    // Honeypot
+    const hp = form.querySelector('input[name="website"]');
     if (hp && hp.value.trim() !== "") {
-      showToast("✅ You’re in! Check your inbox for confirmation.");
+      showToast("Thanks! If this was a mistake, just submit the form again.");
       form.reset();
       btn.textContent = originalBtnText;
-      btn.disabled = true;
+      btn.disabled = !emailInput.value.trim();
       return;
     }
 
