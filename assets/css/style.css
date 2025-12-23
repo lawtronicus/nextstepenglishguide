@@ -257,6 +257,23 @@ h3 {
   color: var(--color-coral-100);
 }
 
+/* disabled status styling */
+button:disabled,
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: saturate(0.8);
+}
+
+/* honeypot */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* ===========
    5. CARDS
    =========== */
@@ -1423,6 +1440,89 @@ nav.header-nav {
   grid-column: 1;
   justify-self: center;
   align-self: flex-end;
+}
+
+/* ====================
+   16. TOAST
+   ==================== */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  width: min(92vw, 520px);
+  padding: 0.75rem 0.9rem;
+
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 40px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.toast--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.toast__content {
+  display: flex;
+  gap: 0.75rem;
+  height: 8rem;
+}
+
+.toast__message {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--color-slate-900, #222);
+  justify-self: center;
+  align-self: center;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.toast__close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.4rem 0.5rem;
+  border-radius: 10px;
+  align-self: flex-start;
+  justify-self: flex-end;
+}
+
+.toast__close:focus-visible {
+  outline: 2px solid var(--color-mint-400, #4ca59a);
+  outline-offset: 2px;
+}
+
+/* optional: subtle “type” styling */
+.toast--success {
+  border: 2px solid var(--color-mint-200);
+}
+
+.toast--error {
+  border: 1px solid rgba(255, 124, 102, 0.45);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: none;
+  }
 }
 
 /* ====================

@@ -29,6 +29,26 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
+    <div
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      hidden
+    >
+      <div class="toast__content">
+        <p id="toastMessage" class="toast__message"></p>
+        <button
+          type="button"
+          class="toast__close"
+          aria-label="Close notification"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+
     <nav class="header-nav" role="navigation">
       <a id="nav-logo-link" href="/index.html">
         <img
@@ -105,14 +125,13 @@
               <span id="cta-emphasis">FREE</span> weekly lessons delivered by
               email to help you improve naturally!
             </p>
-
             <form
-              id="index-signup"
+              class="js-email-subscriber email-signup"
               method="post"
               action="https://assets.mailerlite.com/jsonp/1983037/forms/173831068682552596/subscribe"
               data-code=""
-              target="_blank"
             >
+              <p class="form-status" role="status" aria-live="polite"></p>
               <div class="signup-form__field">
                 <label id="index-signup__label" for="email">Your email</label>
                 <input
@@ -124,6 +143,17 @@
                   name="fields[email]"
                   placeholder="Your Email"
                   autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  tabindex="-1"
+                  autocomplete="off"
                 />
               </div>
 
@@ -325,5 +355,6 @@
       </script>
     </footer>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/signup.js"></script>
   </body>
 </html>

@@ -30,6 +30,26 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body id="weekly-lessons-body">
+    <div
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      hidden
+    >
+      <div class="toast__content">
+        <p id="toastMessage" class="toast__message"></p>
+        <button
+          type="button"
+          class="toast__close"
+          aria-label="Close notification"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+
     <nav class="header-nav" role="navigation">
       <a id="nav-logo-link" href="/index.html">
         <img
@@ -109,18 +129,19 @@
               help you reach the next level!
             </p>
           </header>
+          <p class="form-status" role="status" aria-live="polite"></p>
           <section
             class="signup-form-section"
             aria-label="Sign up for weekly English lessons"
           >
             <!-- This is where you’ll later plug in MailerLite’s embed or your own POST -->
             <form
-              class="signup-form"
+              class="js-email-subscriber signup-form"
               method="post"
               action="https://assets.mailerlite.com/jsonp/1983037/forms/173831068682552596/subscribe"
               data-code=""
-              target="_blank"
             >
+              <p class="form-status" role="status" aria-live="polite"></p>
               <p id="sales-text">One FREE email lesson per week!</p>
               <div class="signup-form__field">
                 <label for="email">Your email</label>
@@ -133,6 +154,17 @@
                   name="fields[email]"
                   placeholder="Your Email"
                   autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  tabindex="-1"
+                  autocomplete="off"
                 />
               </div>
 
@@ -181,5 +213,6 @@
           new Date().getFullYear();
       </script>
     </footer>
+    <script src="assets/js/signup.js"></script>
   </body>
 </html>
